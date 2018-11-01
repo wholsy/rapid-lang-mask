@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.yueny</groupId>
+		<artifactId>yueny-parent</artifactId>
+		<version>1.1.5-RELEASE</version>
+	</parent>
+
+	<groupId>com.yueny.rapid</groupId>
+	<version>1.0.1-SNAPSHOT</version>
+	<artifactId>rapid-lang-mask</artifactId>
+	<packaging>jar</packaging>
+	<name>${project.artifactId}</name>
+
+	<properties>
+		<yueny.api.latest.version>1.0.1-RELEASE</yueny.api.latest.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.yueny</groupId>
+			<artifactId>api</artifactId>
+			<version>${yueny.api.latest.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		
+        <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
