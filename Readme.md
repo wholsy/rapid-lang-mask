@@ -12,7 +12,7 @@
     <dependency>
         <groupId>com.yueny.rapid.lang</groupId>
         <artifactId>rapid-lang-mask</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-RELEASE</version>
     </dependency>
     ```
 
