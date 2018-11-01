@@ -40,7 +40,7 @@
 ### 1.0.0-SNAPSHOT/RELEASE
 增加bo输出对象的掩码功能
 
-### 1.1.0-SNAPSHOT/RELEASE
+### 1.0.1-SNAPSHOT/RELEASE
 rapid-lang-resp依赖升级为 1.2.0-RELEASE；
 允许忽略某一个指定字段的掩码处理;
 增加掩码的装饰者;
