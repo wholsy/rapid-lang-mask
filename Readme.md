@@ -12,7 +12,7 @@
     <dependency>
         <groupId>com.yueny.rapid.lang</groupId>
         <artifactId>rapid-lang-mask</artifactId>
-        <version>1.0.1-RELEASE</version>
+        <version>xxx</version>
     </dependency>
     ```
 
@@ -45,7 +45,7 @@
 * 允许忽略某一个指定字段的掩码处理;
 * 增加掩码的装饰者;
 
-### 2.0.0-SNAPSHOT
+### 2.0.0-SNAPSHOT/RELEASE
 * 掩码迁移;
 * 增加 lombok 依赖;
 * 增加配置中心依赖;
