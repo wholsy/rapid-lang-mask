@@ -1,12 +1,12 @@
 /**
  *
  */
-package com.yueny.rapid.lang.mask;
+package com.yueny.rapid.lang.mask.util;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.yueny.rapid.lang.mask.MaskOcclusionUtil;
+import com.yueny.rapid.lang.mask.util.MaskOcclusionUtil;
 
 /**
  * @author yueny09 <deep_blue_yang@163.com>

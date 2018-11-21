@@ -1,4 +1,4 @@
-package com.yueny.rapid.lang.mask;
+package com.yueny.rapid.lang.mask.util;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -60,7 +60,7 @@ public final class MaskOcclusionUtil {
 
 		// 对于用户的身份证号码进行遮挡 input:370881199010088176 output:370******8176
 		final StringBuilder encryptCardId = new StringBuilder(13);
-		encryptCardId.append(StringUtils.left(certNo, 3)).append("******").append(StringUtils.right(certNo, 4));
+		encryptCardId.append(StringUtils.left(certNo, 3)).append(CARDNO_ENCRYPT_TOKEN).append(StringUtils.right(certNo, 4));
 		return encryptCardId.toString();
 	}
 

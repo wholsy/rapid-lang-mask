@@ -1,6 +1,7 @@
-package com.yueny.rapid.lang.mask;
+package com.yueny.rapid.lang.mask.util;
 
 import java.util.AbstractMap.SimpleEntry;
+import java.util.Date;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,6 +16,18 @@ import com.yueny.superclub.api.constant.Constants;
  * @category tag
  */
 public final class MaskInfoUtil {
+	/**
+	 * @
+	 */
+	public static final String AT = "@";
+	/**
+	 * 等号
+	 */
+	public static final String EQUAL = "=";
+	/**
+	 * 逗号 ","
+	 */
+	public static final String COMMA = ",";
 	/**
 	 * 默认掩码<br>
 	 * Constants.STAR
@@ -59,7 +72,7 @@ public final class MaskInfoUtil {
 	 * 5. 4 < length < 7，保留前2后1 <br>
 	 * 6. 3 <= length <= 4，保留前1后1 <br>
 	 * 7. length == 2，保留前1 <br>
-	 * 8. 5. length == 1,不加掩码,直接输出 <br>
+	 * 8. length == 1,不加掩码,直接输出 <br>
 	 *
 	 * @param source
 	 *            欲掩码的值
@@ -78,6 +91,57 @@ public final class MaskInfoUtil {
 		}
 
 		return mask(result, boundary.getKey(), boundary.getValue());
+	}
+
+	// ===================================  增加 pattern 表达式支持 by wanglilin @20181016 START
+	/**
+	 * ?*#
+	 * #*?
+	 * *?
+	 * ?*
+	 */
+	public static String mask(Object value, String pattern) {
+		if (null == value || null == pattern) {
+			return "";
+		}
+		if (!pattern.contains("?")) {
+			throw new IllegalArgumentException("敏感词pattern格式不正确");
+		}
+		if (!isPrimitive(value.getClass())) {
+			throw new IllegalArgumentException("敏感词值对象不是原生对象");
+		}
+		return createMask(pattern, value.toString().length()).mask(value.toString());
+	}
+
+	private static Mask createMask(String pattern, int length) {
+		// TODO 此处魔术是否可以 使用 MaskOcclusionUtil.CARDNO_ENCRYPT_TOKEN 等常量类标识
+		String fix = "###############################################".substring(0, (length - pattern.length() + 1));
+		return new Mask(pattern.replace("?", fix));
+	}
+
+	/**
+	 * 内部私有类
+	 */
+	private static class Mask {
+		String mask;
+
+		Mask(String mask) {
+			this.mask = mask;
+		}
+
+		String mask(String value) {
+			StringBuilder result = new StringBuilder();
+			for (int i = 0; i < value.length(); i++) {
+				result.append(mask.charAt(i) == '*' ? "*" : value.charAt(i));
+			}
+			return result.toString();
+		}
+	}
+	// ===================================  增加 pattern 表达式支持 END
+
+	public static boolean isPrimitive(Class<?> cls) {
+		return cls.isPrimitive() || cls == String.class || cls == Boolean.class || cls == Character.class
+				|| Number.class.isAssignableFrom(cls) || Date.class.isAssignableFrom(cls);
 	}
 
 	/**
@@ -158,14 +222,14 @@ public final class MaskInfoUtil {
 			return StringUtils.EMPTY;
 		}
 
-		final String[] splitted = StringUtils.split(source, Constants.AT);
+		final String[] splitted = StringUtils.split(source, AT);
 		if (splitted == null || splitted.length != 2) {
 			return source;
 		}
 
 		final String pre = mask(splitted[0]);
 		final String post = mask(splitted[1]);
-		return StringUtils.join(pre, Constants.AT, post);
+		return StringUtils.join(pre, AT, post);
 	}
 
 	/**

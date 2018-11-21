@@ -1,5 +1,7 @@
 package com.yueny.rapid.lang.mask.pojo.instance;
 
+import com.yueny.rapid.lang.mask.internals.WatchServiceConfigLoader;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.yueny.rapid.lang.mask.builder.MaskToStringBuilder;
@@ -30,8 +32,16 @@ public abstract class AbstractMaskBo extends AbstractBo implements IBo {
 	 */
 	@Override
 	public String toString() {
-		// return MaskToStringBuilder.toString(this);
-		return MaskToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+		try {
+			if(WatchServiceConfigLoader.get().isBizMonitor()){
+				return MaskToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+			}
+		}catch(Exception e){
+			// 此处一场忽略, 直接进行不脱敏
+			//.
+		}
+
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
 }

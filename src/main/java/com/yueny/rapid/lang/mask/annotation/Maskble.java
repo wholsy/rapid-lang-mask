@@ -6,7 +6,7 @@ import java.lang.annotation.*;
  * 标注需要打马赛克的字符串字段<br>
  *
  * 卡号<br>
- * #Mask<br>
+ * #Maskble<br>
  * private String cardNo;<br>
  *
  * 则toString时该字段会被InfoMaskUtil.mask
@@ -14,16 +14,10 @@ import java.lang.annotation.*;
  * @author 袁洋 2015年8月17日 下午2:09:55
  * @inc baidu
  */
-@Target(ElementType.FIELD)
+@Target({ElementType.FIELD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Deprecated
-public @interface Mask {
-	/**
-	 * 是否忽略该字段的掩码处理
-	 */
-	boolean ignore() default false;
-
+public @interface Maskble {
 	/**
 	 * 左侧预留字符数目
 	 *
@@ -38,4 +32,17 @@ public @interface Mask {
 	 */
 	int right() default -1;
 
+	/**
+	 * 表达式优先 TODO
+	 *
+	 * @return 左侧预留字符数目
+	 */
+	String pattern() default "";
+
+	
+	/**
+	 * 是否忽略该字段的掩码处理
+	 */
+	boolean ignore() default false;
+	
 }
