@@ -38,19 +38,19 @@
 # 版本发布历史
 ================
 ### 1.0.0-SNAPSHOT/RELEASE
-增加bo输出对象的掩码功能
+* 增加bo输出对象的掩码功能
 
 ### 1.0.1-SNAPSHOT/RELEASE
-rapid-lang-resp依赖升级为 1.2.0-RELEASE；
-允许忽略某一个指定字段的掩码处理;
-增加掩码的装饰者;
+* rapid-lang-resp依赖升级为 1.2.0-RELEASE；
+* 允许忽略某一个指定字段的掩码处理;
+* 增加掩码的装饰者;
 
 ### 2.0.0-SNAPSHOT
-掩码迁移;
-增加 lombok 依赖;
-增加配置中心依赖;
-借助 PrmoRespConfiger 实现掩码值配置化， 更新实时;
-配置中心依赖调整为 provided
+* 掩码迁移;
+* 增加 lombok 依赖;
+* 增加配置中心依赖;
+* 借助 PrmoRespConfiger 实现掩码值配置化， 更新实时;
+* 配置中心依赖调整为 provided
 ```
 装饰器语法
 # 原样显示1位
