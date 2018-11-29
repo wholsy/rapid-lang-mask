@@ -10,7 +10,7 @@
 * **依赖**
     ```
     <dependency>
-        <groupId>com.yueny.rapid.lang</groupId>
+        <groupId>com.yueny.rapid</groupId>
         <artifactId>rapid-lang-mask</artifactId>
         <version>xxx</version>
     </dependency>
