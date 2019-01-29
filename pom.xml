@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.yueny.rapid</groupId>
-	<version>2.0.0-RELEASE</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<artifactId>rapid-lang-mask</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
