@@ -21,7 +21,6 @@ import com.yueny.superclub.api.pojo.instance.AbstractBo;
  */
 public abstract class AbstractMaskBo extends AbstractBo implements IBo {
 	/**
-	 *
 	 */
 	private static final long serialVersionUID = 9010871182373542714L;
 
