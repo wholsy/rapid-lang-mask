@@ -61,7 +61,8 @@
 ```
 
 ## 3.0.0-SNAPSHOT
-* 
+* 增加脱敏规则 Desensitized
+
 
 
 # Java 客户端使用指南

@@ -39,7 +39,7 @@ public class MaskfulDecorator implements IBo {
 	/**
 	 * @return the bo
 	 */
-	public Object getBo() {
+	private Object getBo() {
 		return bo;
 	}
 
@@ -70,6 +70,40 @@ public class MaskfulDecorator implements IBo {
 	}
 
 	/*
+	 * 脱敏， 脱敏后返回原类型对象，但已被克隆或复制过， 不影响源对象
+	 */
+	public Object mask() {
+		// 空对象的输出
+		if (null == bo) {
+			return bo;
+		}
+
+		try {
+			// 字符串的输出
+			if (bo instanceof String) {
+				return StringConvert.mask(getBo().toString(), pattern);
+			}
+
+			// 其他基本类型， 如 Integer 等，不做掩码处理
+
+			// Map类型
+			if (bo instanceof Map) {
+				return MapConvert.mask((Map) getBo());
+			}
+
+			// 非字符串的 mask 输出: 自定义bean, List等复杂对象
+			// TODO 暂未实现
+			return bo;
+		} catch (Exception e) {
+			// 此处异常忽略，仅打印异常信息
+			System.out.println("字段脱敏失败");
+			e.printStackTrace();
+		}
+
+		return "-unknow-";
+	}
+
+	/*
      * (non-Javadoc)
      *
      * @see java.lang.Object#toString()
@@ -92,7 +126,7 @@ public class MaskfulDecorator implements IBo {
 
 			// Map类型
 			if (bo instanceof Map) {
-				return MapConvert.mask((Map) getBo());
+				return MapConvert.toString((Map) getBo());
 			}
 
 			// 非字符串的 mask 输出: 自定义bean, List等复杂对象

@@ -10,8 +10,10 @@ import org.apache.commons.lang3.StringUtils;
  * @category tag
  */
 public final class MaskOcclusionUtil {
+	/** 遮挡填充key */
+	public static final String SINGLE_ENCRYPT_TOKEN = "*";
 	/** 银行卡号遮挡填充key */
-	private static final String CARDNO_ENCRYPT_TOKEN = "****";
+	public static final String CARDNO_ENCRYPT_TOKEN = "****";
 	/** 邮箱遮挡填充key */
 	private static final String EMAIL_ENCRYPT_TOKEN = "***";
 	/** 身份证号最少的位数 */
@@ -22,11 +24,11 @@ public final class MaskOcclusionUtil {
 	private static final char SEPARATOR = '@';
 
 	/**
-	 * @category 对于用户的银行卡号码进行遮挡 input:6225882133271010 output:****1010
+	 * @category 对于用户的银行卡号码进行遮挡 input:6225882133271010 output:62****1010
 	 *
 	 * @param cardNo
 	 *            银行卡号
-	 * @return 8位银行卡号掩码
+	 * @return 最多10位银行卡号掩码
 	 */
 	public static String occlusionCardNo(final String cardNo) {
 		if (StringUtils.isEmpty(cardNo) || cardNo.length() < 6) {
@@ -36,8 +38,17 @@ public final class MaskOcclusionUtil {
 		// ************1010
 		// InfoMaskUtil.mask(cardNo, 0, 4);
 
-		final StringBuilder encryptCardNo = new StringBuilder(8);
-		encryptCardNo.append(CARDNO_ENCRYPT_TOKEN).append(StringUtils.right(cardNo, 4));
+		if (cardNo.length() <= 8) {
+			final StringBuilder encryptCardNo = new StringBuilder(8);
+			encryptCardNo.append(CARDNO_ENCRYPT_TOKEN)
+					.append(StringUtils.right(cardNo, 4));
+			return encryptCardNo.toString();
+		}
+
+		final StringBuilder encryptCardNo = new StringBuilder(10);
+		encryptCardNo.append(StringUtils.left(cardNo, 2))
+				.append(CARDNO_ENCRYPT_TOKEN)
+				.append(StringUtils.right(cardNo, 4));
 		return encryptCardNo.toString();
 	}
 
@@ -60,7 +71,8 @@ public final class MaskOcclusionUtil {
 
 		// 对于用户的身份证号码进行遮挡 input:370881199010088176 output:370******8176
 		final StringBuilder encryptCardId = new StringBuilder(13);
-		encryptCardId.append(StringUtils.left(certNo, 3)).append(CARDNO_ENCRYPT_TOKEN).append(StringUtils.right(certNo, 4));
+		encryptCardId.append(StringUtils.left(certNo, 3)).append(CARDNO_ENCRYPT_TOKEN)
+				.append(StringUtils.right(certNo, 4));
 		return encryptCardId.toString();
 	}
 

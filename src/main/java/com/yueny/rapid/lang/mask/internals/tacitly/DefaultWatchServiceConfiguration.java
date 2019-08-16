@@ -41,9 +41,12 @@ public class DefaultWatchServiceConfiguration implements IWatchServiceConfigurat
 	 * </p>
 	 * 身份证号码</br>
 	 */
-	private static Set<String> defaultMaskFields = Collections.unmodifiableSet(new HashSet<>(Arrays.asList("cardNo", "bankCard", "bankCardNo", "certificateNo", "certNo",
+	private static Set<String> defaultMaskFields = Collections.unmodifiableSet(
+			new HashSet<>(Arrays.asList(
+			"cardNo", "bankCard", "bankCardNo", "certificateNo", "certNo",
 			//"mobile", "mobileNo", "tel", "telNo", "telphone", "telphoneNo", "phone", "phoneNo",
-			"address", "addr", "postAddr", "postAddress", "mailAddr", "mailAddress",
+			"address", "addr", "postAddr", "postAddress",
+			"mailAddr", "mailAddress",
 			// 以下是针对遗留数据库增加f_前缀的情况
 			"fCardNo", "fBankCard", "fBankCardNo", "fAccountNo", "fCertificateNo", "fCertNo", "fMobile", "fMobileNo",
 			"fTel", "fTelNo", "fAddress", "fAddr", "fPostAddr", "fPostAddress", "fMailAddr", "fMailAddress",
@@ -51,7 +54,9 @@ public class DefaultWatchServiceConfiguration implements IWatchServiceConfigurat
 			// 以下是针对_分隔的情况
 			"card_no", "bank_card", "bank_card_no", "certificate_no", "cert_no",
 			// "mobile_no", "tel_no", "telphone_no", "phone_no", "account_no"
-			"post_addr", "post_address", "mail_addr", "mail_address")));
+			"post_addr", "post_address", "mail_addr", "mail_address",
+			// 密码类
+			"password")));
 	
 	/**
 	 * <p>

@@ -18,13 +18,13 @@ public class MaskOcclusionUtilTest {
 	@Test
 	public void testOcclusionCardNo() {
 		final String encryptCardNo = MaskOcclusionUtil.occlusionCardNo("6225882133271010");
-		Assert.assertEquals("****1010", encryptCardNo);
+		Assert.assertEquals("62****1010", encryptCardNo);
 	}
 
 	@Test
 	public void testOcclusionCertNo() {
 		final String encrypt = MaskOcclusionUtil.occlusionCertNo("662973199010088176");
-		Assert.assertEquals("662******8176", encrypt);
+		Assert.assertEquals("662****8176", encrypt);
 	}
 
 	@Test

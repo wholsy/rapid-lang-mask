@@ -4,7 +4,7 @@ import com.yueny.rapid.lang.mask.util.MaskInfoUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *  Map 类转换
+ *  String 类转换
  */
 public class StringConvert {
     // ===================================  字符串掩码输出 by wanglilin @20181016 START

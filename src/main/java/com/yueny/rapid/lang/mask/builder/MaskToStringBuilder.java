@@ -23,6 +23,7 @@ import com.yueny.rapid.lang.mask.annotation.Mask;
  * @inc baidu
  * @category tag
  */
+@SuppressWarnings("deprecation")
 public class MaskToStringBuilder extends ReflectionToStringBuilder {
 	/**
 	 * 通过反射将对象内容变为字符串，对匹配到的属性进行内容过滤
