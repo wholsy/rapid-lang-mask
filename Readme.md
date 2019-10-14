@@ -62,7 +62,7 @@
 
 ## 3.0.0-SNAPSHOT
 * 增加脱敏规则 Desensitized
-
+* yueny-parent升级为1.1.6-RELEASE
 
 
 # Java 客户端使用指南
