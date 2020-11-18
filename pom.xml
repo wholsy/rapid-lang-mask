@@ -6,11 +6,11 @@
 	<parent>
 		<groupId>com.yueny</groupId>
 		<artifactId>yueny-parent</artifactId>
-		<version>1.1.6-RELEASE</version>
+		<version>1.2.0-RELEASE</version>
 	</parent>
 
 	<groupId>com.yueny.rapid</groupId>
-	<version>3.0.0-SNAPSHOT</version>
+	<version>3.0.0-RELEASE</version>
 	<artifactId>rapid-lang-mask</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>

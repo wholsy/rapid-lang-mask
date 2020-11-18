@@ -60,9 +60,9 @@
 譬如##**? 头两位原样显示，其后两位脱敏，再其后原样显示
 ```
 
-## 3.0.0-SNAPSHOT
+## 3.0.0-SNAPSHOT/RELEASE
 * 增加脱敏规则 Desensitized
-* yueny-parent升级为1.1.6-RELEASE
+* yueny-parent升级为1.2.0-RELEASE
 
 
 # Java 客户端使用指南
