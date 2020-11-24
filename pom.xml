@@ -4,35 +4,32 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.yueny</groupId>
+		<groupId>com.whosly</groupId>
 		<artifactId>yueny-parent</artifactId>
-		<version>1.2.0-RELEASE</version>
+		<version>1.3.0-RELEASE</version>
 	</parent>
 
-	<groupId>com.yueny.rapid</groupId>
-	<version>3.0.0-RELEASE</version>
+	<groupId>com.whosly</groupId>
 	<artifactId>rapid-lang-mask</artifactId>
+	<version>4.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
+	<url>https://github.com/yueny/rapid-lang-mask</url>
+	<description>${project.artifactId}</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 
-		<yueny.api.latest.version>1.0.1-RELEASE</yueny.api.latest.version>
-
-		<!--<apache.commons.lang3.version>3.7</apache.commons.lang3.version>-->
-		<!--<projectlombok.lombok.version>1.18.2</projectlombok.lombok.version>-->
-
-		<!--<slf4j.version>1.7.25</slf4j.version>-->
+		<whosly.api.latest.version>1.2.0-RELEASE</whosly.api.latest.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.yueny</groupId>
+			<groupId>com.whosly</groupId>
 			<artifactId>api</artifactId>
-			<version>${yueny.api.latest.version}</version>
+			<version>${whosly.api.latest.version}</version>
 		</dependency>
 		
 		<dependency>
@@ -42,7 +39,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<!--各个部门均使用不多。需要主动进行排除-->
 			<!--<scope>provided</scope>-->
 		</dependency>
 		<dependency>
@@ -56,7 +52,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
-			<!--<version>4.3.16.RELEASE</version>-->
 		</dependency>
         <dependency>
 			<groupId>junit</groupId>
@@ -85,18 +80,63 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.7</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+
+						<configuration>
+							<additionalJOption>-Xdoclint:none</additionalJOption>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
+
+	<licenses>
+		<!-- Apache许可证 -->
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<!-- SCM信息 -->
+	<scm>
+		<url>https://github.com/yueny/rapid-lang-mask</url>
+		<connection>scm:https://github.com/yueny/rapid-lang-mask.git</connection>
+		<developerConnection>scm:https://github.com/yueny/rapid-lang-mask.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<!-- 开发者信息 -->
+	<developers>
+		<developer>
+			<name>fengyang</name>
+			<email>deep_blue_yang@126.com</email>
+			<url>https://github.com/yueny</url>
+			<roles>
+				<role>software engineer</role>
+			</roles>
+			<timezone>9</timezone>
+		</developer>
+	</developers>
+
 </project>

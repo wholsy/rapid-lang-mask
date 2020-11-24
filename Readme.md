@@ -65,6 +65,10 @@
 * yueny-parent升级为1.2.0-RELEASE
 
 
+## 4.0.0-SNAPSHOT
+* 依赖升级为 中央仓库基础包 com.whosly。后续计划每月迭代一次更新版本和需求。
+
+
 # Java 客户端使用指南
 ### 输出结果
 > MaskDemoBo[orderNo=a65d41*********30f8,mobile=186*****458]
