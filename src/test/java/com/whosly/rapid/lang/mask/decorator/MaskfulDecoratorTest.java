@@ -1,5 +1,6 @@
 package com.whosly.rapid.lang.mask.decorator;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -18,7 +19,9 @@ public class MaskfulDecoratorTest {
 
         final MaskfulDecorator decorator = new MaskfulDecorator(map);
         Map<String, Object> map1 = (Map<String, Object>) decorator.mask();
+
         System.out.println(map1);
-//        Assert.assertEquals("662****8176", encrypt);
+        Assert.assertEquals("dw**d", map1.get("password"));
+        Assert.assertEquals(66666, map1.get("a"));
     }
 }

@@ -84,5 +84,9 @@ public class DiamondWatchServiceConfiguration implements IWatchServiceConfigurat
 
 		return true;
 	}
-	
+
+	@Override
+	public WatchConfigureType watchConfigureType() {
+		return WatchConfigureType.DIAMOND;
+	}
 }

@@ -1,5 +1,7 @@
 package com.whosly.rapid.lang.mask.spi;
 
+import com.whosly.rapid.lang.mask.internals.WatchConfigureType;
+
 import java.util.Set;
 
 /**
@@ -10,21 +12,28 @@ public interface IWatchServiceConfiguration {
     /**
      * @return email 掩码字段
      */
-    public Set<String> getEmailFields();
+    Set<String> getEmailFields();
 
     /**
      * @return 掩码字段
      */
-    public Set<String> getMaskFields();
+    Set<String> getMaskFields();
 
     /**
      * @return 是否开启监控。 各自根据需要去判断和定义
      */
-    public boolean isBizMonitor();
+    boolean isBizMonitor();
 
     /**
      * @return 配置启动，初始化去读取配置中心
      */
-    public boolean load();
+    boolean load();
+
+    /**
+     * 配置类型
+     *
+     * @return 配置类型
+     */
+    WatchConfigureType watchConfigureType();
 
 }

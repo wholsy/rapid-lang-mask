@@ -6,7 +6,7 @@
 </a>
 
 
-# 日志脱敏组件
+# 一、日志脱敏组件
 * **依赖**
     ```
     <dependency>
@@ -16,7 +16,7 @@
     </dependency>
     ```
 
-# 服务需求
+# 二、背景和服务需求
 * **概述**
    本方案主要是为了解决日志文档输出中关于敏感信息的处理方法，其中包括针对不同类型数据的分类、脱敏规则的制定以及脱敏方案的实施。
    本标准规定了日志数据的脱敏原则、脱敏方法和脱敏过程，可为数据脱敏工作的规划、实施和管理提供指导。
@@ -35,7 +35,7 @@
 * **有效性**
    数据脱敏的最基本原则就是要去掉数据中的敏感信息，保证数据安全，这是对数据脱敏工作最基本的要求。有效性要求经过数据脱敏处理后，原始信息中包含的敏感信息已被移除，无法通过处理后的数据得到敏感信息；或者需通过巨大经济代价、时间代价才能得到敏感信息，其成本已远远超过数据本身的价值。此外，在处理敏感信息时，应注意根据原始数据的特点和应用场景，选择合适的脱敏方法。
 
-# 版本发布历史
+# 三、版本发布历史
 ## 1.0.0-SNAPSHOT/RELEASE
 * 增加bo输出对象的掩码功能
 
@@ -69,10 +69,27 @@
 * 依赖升级为 中央仓库基础包 com.whosly。后续计划每月迭代一次更新版本和需求。
 
 
-# Java 客户端使用指南
+# 四、Java 客户端使用指南
+* 引入依赖包
+* 将数据实体对象继承 com.whosly.rapid.lang.mask.instance.AbstractMaskBo
+  + 大部分场景直接继承即可
+  + 直接继承后，会对接口 IWatchServiceConfiguration 中定义的 getEmailFields 字段和 getMaskFields 字段自动进行脱敏
+  + 如果需要对配置外字段进行脱敏，则直接在bo/vo/co/ro/pojo 的field字段上增加注解 @Maskble 即可。
+* Demo
+  + test测试用例中，com.whosly.rapid.lang.mask.MaskBoTest
+  
 ### 输出结果
 > MaskDemoBo[orderNo=a65d41*********30f8,mobile=186*****458]
 
 
-# 同步信息
-20190703 2.0.0 已同步
+# 五、配置中心的扩展实现
+> 接口定义
+> com.whosly.rapid.lang.mask.spi.IWatchServiceConfiguration
+
+* 接口
+  + 默认脱敏规则: com.whosly.rapid.lang.mask.internals.tacitly.DefaultWatchServiceConfiguration
+  + diamond 脱敏样例: com.whosly.rapid.lang.mask.internals.DiamondWatchServiceConfiguration (位于test下)
+  + ......
+  
+* 实现
+> 目录  META-INF/services 下文件 com.whosly.rapid.lang.mask.spi.IWatchServiceConfiguration

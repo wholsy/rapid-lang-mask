@@ -24,8 +24,6 @@ public class WatchServiceConfigLoader {
             synchronized (oject){
                 if(watchServiceConfiguration == null){
                     watchServiceConfiguration = getInternals();
-                    
-                    log.debug("初始化 IWatchServiceConfiguration, 初始化实例对象：{}.", watchServiceConfiguration.getClass().getCanonicalName());
                 }
             }
         }
@@ -74,6 +72,7 @@ public class WatchServiceConfigLoader {
         // 配置初始化加载
         watchServiceConfiguration.load();
 
+        log.debug("初始化 IWatchServiceConfiguration, 初始化实例对象 -> 类型: {}, class: {}。", watchServiceConfiguration.watchConfigureType(), watchServiceConfiguration.getClass());
         return watchServiceConfiguration;
     }
 

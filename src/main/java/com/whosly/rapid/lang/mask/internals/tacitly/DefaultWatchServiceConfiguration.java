@@ -3,6 +3,7 @@
  */
 package com.whosly.rapid.lang.mask.internals.tacitly;
 
+import com.whosly.rapid.lang.mask.internals.WatchConfigureType;
 import com.whosly.rapid.lang.mask.spi.IWatchServiceConfiguration;
 
 import java.util.Arrays;
@@ -106,4 +107,8 @@ public class DefaultWatchServiceConfiguration implements IWatchServiceConfigurat
 		return true;
 	}
 
+	@Override
+	public WatchConfigureType watchConfigureType() {
+		return WatchConfigureType.DEFAULT;
+	}
 }

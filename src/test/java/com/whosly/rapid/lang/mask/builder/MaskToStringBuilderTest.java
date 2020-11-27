@@ -1,14 +1,14 @@
 package com.whosly.rapid.lang.mask.builder;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.util.HashMap;
 
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.Test;
 
 import com.whosly.rapid.lang.mask.annotation.Mask;
+
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author 袁洋 2015年8月17日 下午2:32:16
@@ -89,11 +89,14 @@ public class MaskToStringBuilderTest {
 		final Tester tester = new Tester();
 
 		System.out.println(tester);
+		assertTrue(tester != null);
 
 		String toStr = MaskToStringBuilder.toString(tester, new String[] { "email", "expectData", "langChar" });
-		System.out.println(tester);
+		System.out.println(toStr);
+		assertEquals(toStr, "com.whosly.rapid.lang.mask.builder.MaskToStringBuilderTest$Tester@6321e813[email=dee******com,expectData=expect***********Data,langChar=实现思想很简单，Pu******************接收。,unboxBoolean=true,unboxChar=un*****ar]");
 
 		toStr = MaskToStringBuilder.toString(tester, ToStringStyle.DEFAULT_STYLE);
 		System.out.println(toStr);
+		assertEquals(toStr, "com.whosly.rapid.lang.mask.builder.MaskToStringBuilderTest$Tester@6321e813[email=d**p@16***om,expectData=expectDataexpectDataexpectDataexpectData,langChar=实现思想很简单，Pu******************接收。,unboxBoolean=true,unboxChar=un*****ar]");
 	}
 }
