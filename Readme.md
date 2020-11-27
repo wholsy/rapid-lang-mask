@@ -7,12 +7,12 @@
 
 
 # 一、日志脱敏组件
-* **依赖**
+* **最新依赖**
     ```
     <dependency>
         <groupId>com.whosly</groupId>
         <artifactId>rapid-lang-mask</artifactId>
-        <version>xxx</version>
+        <version>4.0.0-RELEASE</version>
     </dependency>
     ```
 
