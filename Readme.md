@@ -8,13 +8,16 @@
 
 # 一、日志脱敏组件
 * **最新依赖**
-    ```
-    <dependency>
-        <groupId>com.whosly</groupId>
-        <artifactId>rapid-lang-mask</artifactId>
-        <version>4.0.0-RELEASE</version>
-    </dependency>
-    ```
+```
+<dependency>
+    <groupId>com.whosly</groupId>
+    <artifactId>rapid-lang-mask</artifactId>
+    <version>4.0.0-RELEASE</version>
+</dependency>
+```
+
+项目已上传Maven中央仓库。
+> https://search.maven.org/search?q=whosly
 
 # 二、背景和服务需求
 * **概述**
