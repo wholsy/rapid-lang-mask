@@ -19,6 +19,8 @@
 项目已上传Maven中央仓库。
 > https://search.maven.org/search?q=whosly
 
+>https://mvnrepository.com/search?q=whosly
+
 # 二、背景和服务需求
 * **概述**
    本方案主要是为了解决日志文档输出中关于敏感信息的处理方法，其中包括针对不同类型数据的分类、脱敏规则的制定以及脱敏方案的实施。
