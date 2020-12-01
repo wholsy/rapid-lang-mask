@@ -75,14 +75,7 @@ public class DiamondWatchServiceConfiguration implements IWatchServiceConfigurat
 		String groupId = "FX.app";
 		final String dataId = "diamond-mask";
 
-		try {
-			loadConfig(groupId, dataId);
-		} catch (Exception e) {
-			logger.error("警告性的加载配置信息异常！groupId=" + groupId + ", dataId = " + dataId, e);
-
-			maskFields = defaultMaskFields;
-			emailFields = defaultEmailFields;
-		}
+		loadConfig(groupId, dataId);
 
 		return true;
 	}
@@ -94,6 +87,8 @@ public class DiamondWatchServiceConfiguration implements IWatchServiceConfigurat
 				try {
 					loadConfigByDataId(dataId, configInfo);
 				} catch (Throwable ignore) {
+					maskFields = defaultMaskFields;
+					emailFields = defaultEmailFields;
 				}
 			}
 
@@ -102,10 +97,17 @@ public class DiamondWatchServiceConfiguration implements IWatchServiceConfigurat
 			}
 		};
 
-		DiamondManager diamondManager = DiamondClients.createSafeDiamondManager(groupId, dataId, managerListener);
-		// 加载一次数据
-		String allConfig = diamondManager.getAvailableConfigureInfomation();
-		loadConfigByDataId(dataId, allConfig);
+		try {
+			DiamondManager diamondManager = DiamondClients.createSafeDiamondManager(groupId, dataId, managerListener);
+			// 加载一次数据
+			String allConfig = diamondManager.getAvailableConfigureInfomation();
+			loadConfigByDataId(dataId, allConfig);
+		} catch (Exception e) {
+			logger.error("警告性的加载配置信息异常！groupId=" + groupId + ", dataId = " + dataId, e);
+
+			maskFields = defaultMaskFields;
+			emailFields = defaultEmailFields;
+		}
 	}
 
 	private void loadConfigByDataId(String dataId, String config) {
