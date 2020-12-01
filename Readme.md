@@ -69,9 +69,14 @@
 * 增加脱敏规则 Desensitized
 * yueny-parent升级为1.2.0-RELEASE
 
-
 ## 4.0.0-SNAPSHOT/RELEASE
 * 依赖升级为 中央仓库基础包 com.whosly。后续计划每月迭代一次更新版本和需求。
+
+## 4.1.0-SNAPSHOT
+* jdk 要求 1.8+ 
+* 实现 Apollo 配置中心实现 ApolloWatchServiceConfiguration。见文档 《used-apollo.md》
+* diamond 因涉及公共包 diamond-client 不同，不做统一实现。可以参考测试用例 com.whosly.rapid.lang.mask.internals.tacitly.DiamondWatchServiceConfiguration。
+
 
 
 # 四、Java 客户端使用指南
@@ -93,7 +98,7 @@
 
 * 接口
   + 默认脱敏规则: com.whosly.rapid.lang.mask.internals.tacitly.DefaultWatchServiceConfiguration
-  + diamond 脱敏样例: com.whosly.rapid.lang.mask.internals.DiamondWatchServiceConfiguration (位于test下)
+  + diamond 脱敏样例: com.whosly.rapid.lang.mask.internals.tacitly.DiamondWatchServiceConfiguration (位于test下)
   + ......
   
 * 实现

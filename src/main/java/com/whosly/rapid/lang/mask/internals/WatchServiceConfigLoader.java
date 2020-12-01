@@ -4,13 +4,14 @@ import java.util.ServiceLoader;
 
 import com.whosly.rapid.lang.mask.internals.tacitly.DefaultWatchServiceConfiguration;
 import com.whosly.rapid.lang.mask.spi.IWatchServiceConfiguration;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * spi 加载
  */
-@Slf4j
 public class WatchServiceConfigLoader {
+    private static final Logger log = LoggerFactory.getLogger(WatchServiceConfigLoader.class);
     private static Object oject = new Object();
     private static IWatchServiceConfiguration watchServiceConfiguration;
 

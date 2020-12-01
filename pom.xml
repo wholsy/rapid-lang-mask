@@ -11,14 +11,18 @@
 
 	<groupId>com.whosly</groupId>
 	<artifactId>rapid-lang-mask</artifactId>
-	<version>4.0.0-RELEASE</version>
+	<version>4.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
 	<url>https://github.com/yueny/rapid-lang-mask</url>
 	<description>${project.artifactId}</description>
 
 	<properties>
+		<java.version>1.8</java.version>
+
 		<whosly.api.latest.version>1.2.0-RELEASE</whosly.api.latest.version>
+
+		<com.ctrip.framework.apollo.version>1.7.0</com.ctrip.framework.apollo.version>
 	</properties>
 
 	<dependencies>
@@ -32,18 +36,33 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<!--<scope>provided</scope>-->
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!-- apollo -->
+		<dependency>
+			<groupId>com.ctrip.framework.apollo</groupId>
+			<artifactId>apollo-client</artifactId>
+			<version>${com.ctrip.framework.apollo.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- test -->
+		<dependency>
+			<groupId>com.taobao.diamond</groupId>
+			<artifactId>diamond-client</artifactId>
+			<version>3.5-GA-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
