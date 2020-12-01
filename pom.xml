@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.whosly</groupId>
 		<artifactId>yueny-parent</artifactId>
-		<version>1.3.0-RELEASE</version>
+		<version>1.3.1-SNAPSHOT</version>
 	</parent>
 
 	<groupId>com.whosly</groupId>
@@ -21,8 +21,6 @@
 		<java.version>1.8</java.version>
 
 		<whosly.api.latest.version>1.2.0-RELEASE</whosly.api.latest.version>
-
-		<com.ctrip.framework.apollo.version>1.7.0</com.ctrip.framework.apollo.version>
 	</properties>
 
 	<dependencies>
@@ -52,7 +50,6 @@
 		<dependency>
 			<groupId>com.ctrip.framework.apollo</groupId>
 			<artifactId>apollo-client</artifactId>
-			<version>${com.ctrip.framework.apollo.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
