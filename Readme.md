@@ -99,7 +99,7 @@
 ### 4.0.0-SNAPSHOT/RELEASE
 * 依赖升级为 中央仓库基础包 com.whosly。后续计划每月迭代一次更新版本和需求。
 
-### 4.1.0-SNAPSHOT
+### 4.1.0-SNAPSHOT/RELEASE
 * jdk 要求 1.8+ 
 * 实现 Apollo 配置中心实现 ApolloWatchServiceConfiguration。见文档 《used-apollo.md》
 * diamond 因涉及公共包 diamond-client 不同，不做统一实现。可以参考测试用例 com.whosly.rapid.lang.mask.internals.tacitly.DiamondWatchServiceConfiguration。

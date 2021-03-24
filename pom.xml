@@ -11,7 +11,7 @@
 
 	<groupId>com.whosly</groupId>
 	<artifactId>rapid-lang-mask</artifactId>
-	<version>4.1.0-SNAPSHOT</version>
+	<version>4.1.0</version>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
 	<url>https://github.com/yueny/rapid-lang-mask</url>
