@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.whosly</groupId>
 		<artifactId>yueny-parent</artifactId>
-		<version>1.3.1-SNAPSHOT</version>
+		<version>1.3.1-RELEASE</version>
 	</parent>
 
 	<groupId>com.whosly</groupId>
