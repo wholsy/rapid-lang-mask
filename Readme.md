@@ -6,6 +6,8 @@
 </a>
 
 
+已迁移至gitee， 地址：https://gitee.com/whosly/rapid-lang-mask/tree/4.1.1/
+
 ## 一、日志脱敏组件
 **最新依赖**
 ```
