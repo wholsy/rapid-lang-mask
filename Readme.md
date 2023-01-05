@@ -5,6 +5,8 @@
   <img alt="Coverity Scan Build Status" src="https://img.shields.io/coverity/scan/8244.svg"/>
 </a>
 
+已迁移至gitee， 地址：https://gitee.com/whosly/rapid-lang-mask/tree/4.1.1/
+
 
 ## 一、日志脱敏组件
 **最新依赖**
